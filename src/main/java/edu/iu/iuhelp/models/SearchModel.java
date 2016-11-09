@@ -1,4 +1,4 @@
-package edu.iu.iuhelp.edu.iu.iuhelp.models;
+package edu.iu.iuhelp.models;
 
 import org.springframework.stereotype.Component;
 

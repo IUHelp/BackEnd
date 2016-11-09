@@ -1,8 +1,9 @@
-package edu.iu.iuhelp.edu.iu.iuhelp.controllers;
+package edu.iu.iuhelp.controllers;
 
-import edu.iu.iuhelp.edu.iu.iuhelp.models.SearchModel;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by Sujeet Kumar on 11/4/16.
