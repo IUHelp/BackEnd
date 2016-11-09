@@ -30,7 +30,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
-    <link rel="stylesheet" href="styles.css">
+
+    <link type="text/css" href="styles.css" rel="stylesheet" />
     <style>
     #view-source {
       position: fixed;
