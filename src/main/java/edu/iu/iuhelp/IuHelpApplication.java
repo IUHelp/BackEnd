@@ -8,5 +8,6 @@ public class IuHelpApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IuHelpApplication.class, args);
+		
 	}
 }
