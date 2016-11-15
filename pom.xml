@@ -35,7 +35,47 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		
+		<dependency>
+    		<groupId>commons-io</groupId>
+    		<artifactId>commons-io</artifactId>
+    		<version>2.5</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.lucene</groupId>
+    		<artifactId>lucene-analyzers-common</artifactId>
+    		<version>6.2.0</version>
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.apache.lucene</groupId>
+    		<artifactId>lucene-core</artifactId>
+    		<version>6.2.0</version>
+		</dependency>
+		
+		<dependency>
+	    	<groupId>sax</groupId>
+	    	<artifactId>sax</artifactId>
+	    	<version>2.0.1</version>
+		</dependency>
+		
+		
+		<dependency>
+    		<groupId>org.w3c</groupId>
+    		<artifactId>dom</artifactId>
+    		<version>2.3.0-jaxb-1.0.6</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>6.2.0</version>
+		</dependency>
+		
+		
+		
+		
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
 			<artifactId>tomcat-embed-jasper</artifactId>
@@ -60,6 +100,7 @@
 			</plugin>
 		</plugins>
 	</build>
-
+	
+	
 
 </project>
