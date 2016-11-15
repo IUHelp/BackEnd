@@ -242,6 +242,7 @@ function showButtons(style) {
 function httpGetAsync() {
 	
 	var json = JSON.stringify(final_transcript);
+	console.log('sole');
 	$.ajax({
 		headers : {
 			'Accept' : 'application/json',
@@ -258,6 +259,7 @@ function httpGetAsync() {
 			console.log(xhr.responseText);
 		},
 		success : function(response) {
+		    console.log(response);
 			alert(response);
 		}
 	});
