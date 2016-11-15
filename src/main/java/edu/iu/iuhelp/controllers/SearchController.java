@@ -2,6 +2,9 @@ package edu.iu.iuhelp.controllers;
 
 
 import edu.iu.iuhelp.models.ResultModel;
+import edu.iu.iuhelp.services.SearchIndex;
+
+import org.apache.lucene.queryparser.classic.ParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONObject;
 
@@ -27,21 +30,25 @@ public class SearchController {
     @Autowired
     private ResultModel resultModel;
 
+    @Autowired
+    private SearchIndex searchIndex;
+    
     @RequestMapping(value ="/search",method = RequestMethod.GET)
     public String search(@RequestParam(value="searchQuery",required = true) String searchQuery){
 
         JSONObject jsonObject = new JSONObject();
         try {
+        	
+        	ArrayList<String> list = (ArrayList<String>) searchIndex.getResult(searchQuery);
             System.out.println(" search controller ");
             ObjectMapper objectMapper = new ObjectMapper();
-            ArrayList<String> list = new ArrayList<String>();
-            list.add("Dummy link 1");
-            list.add("Dummy link 2");
+//            list.add("Dummy link 1");
+//            list.add("Dummy link 2");
             resultModel.setTextResult(" Dummy Result");
             resultModel.setLinksResult(list);
             String jsonValue = objectMapper.writeValueAsString(resultModel);
             jsonObject.put("results", jsonValue);
-        }catch (IOException e){
+        }catch (IOException | ParseException e){
 
         }
         return jsonObject.toString();
