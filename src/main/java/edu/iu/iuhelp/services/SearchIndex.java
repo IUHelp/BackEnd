@@ -23,15 +23,13 @@ import org.springframework.stereotype.Service;
 public class SearchIndex {
 	public List<String> getResult(String Query) throws IOException, ParseException{
 			List<String> result=new ArrayList<String>();
-		 String indexPath="C:\\Users\\sujit\\Desktop\\IndexedDocs";
-			//in.startIndex("C:\\Users\\sujit\\workspace\\QueryLucene\\lib\\Corpus.txt");
+		 String indexPath="C:\\Users\\sujit\\Desktop\\IndexedDocsKB";
 			IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get(indexPath)));
 			System.out.println("Total number of documents in the corpus:"+r.maxDoc());
-			//Query Analyzer
 			Analyzer a=new StandardAnalyzer();
 			Similarity sim=new BM25Similarity();
 
-			//"text" identifies which field you are searching in.
+			//"summary" identifies which field you are searching in.
 			QueryParser parser = new QueryParser("summary", a);
 			org.apache.lucene.search.Query query = parser.parse(QueryParser.escape(Query));
 			IndexSearcher s=new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(indexPath))));
@@ -48,7 +46,6 @@ public class SearchIndex {
 				temp+=doc.get("path");
 				result.add(temp);
 				System.out.println(temp);
-				System.out.println(doc.get("summary"));
 			}
 		 return result;
 	}
