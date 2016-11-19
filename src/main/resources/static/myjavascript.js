@@ -260,7 +260,7 @@ function httpGetAsync() {
 		},
 		success : function(response) {
 		    console.log(response);
-			alert(response);
+			alert(response.results);
 		}
 	});
 }

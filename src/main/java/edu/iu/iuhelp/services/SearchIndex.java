@@ -17,16 +17,24 @@ import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.FSDirectory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SearchIndex {
+
+	@Value("${resource.indexed.folder.name}")
+	private String indexedDirectoryName;
+
 	public List<String> getResult(String Query) throws IOException, ParseException{
 			List<String> result=new ArrayList<String>();
-		 String indexPath="C:\\Users\\sujit\\Desktop\\IndexedDocs";
-			//in.startIndex("C:\\Users\\sujit\\workspace\\QueryLucene\\lib\\Corpus.txt");
-			IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get(indexPath)));
-			System.out.println("Total number of documents in the corpus:"+r.maxDoc());
+
+			ClassPathResource classPathResource = new ClassPathResource(indexedDirectoryName);
+			String indexedDirectory =classPathResource.getURL().getPath();
+
+			IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get(indexedDirectory)));
+
 			//Query Analyzer
 			Analyzer a=new StandardAnalyzer();
 			Similarity sim=new BM25Similarity();
@@ -34,22 +42,11 @@ public class SearchIndex {
 			//"text" identifies which field you are searching in.
 			QueryParser parser = new QueryParser("summary", a);
 			org.apache.lucene.search.Query query = parser.parse(QueryParser.escape(Query));
-			IndexSearcher s=new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(indexPath))));
-			s.setSimilarity(sim);
-			TopDocs results = s.search(query, 10);
+			IndexSearcher searchIndexDoc =new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(indexedDirectory))));
+            searchIndexDoc.setSimilarity(sim);
+			TopDocs results = searchIndexDoc.search(query, 10);
 			ScoreDoc[] hits=results.scoreDocs;
 
-			//int numTotalHits = results.totalHits;
-
-			//System.out.println(numTotalHits + " total matching documents");
-			for(int i=0;i<hits.length;i++){
-				Document doc=s.doc(hits[i].doc);
-				String temp="";
-				temp+=doc.get("path");
-				result.add(temp);
-				System.out.println(temp);
-				System.out.println(doc.get("summary"));
-			}
 		 return result;
 	}
 }
