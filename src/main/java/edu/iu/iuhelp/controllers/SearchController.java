@@ -42,8 +42,6 @@ public class SearchController {
 
         try{
 
-            ClassPathResource classPathResource = new ClassPathResource("static");
-
             ArrayList<String> list = (ArrayList<String>) searchIndex.getResult(searchQuery);
 
             ObjectMapper objectMapper = new ObjectMapper();
