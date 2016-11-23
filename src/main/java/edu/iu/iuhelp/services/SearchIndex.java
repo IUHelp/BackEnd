@@ -1,8 +1,13 @@
 package edu.iu.iuhelp.services;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -17,6 +22,7 @@ import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.store.NIOFSDirectory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
@@ -30,13 +36,45 @@ public class SearchIndex {
 	public List<String> getResult(String Query) throws IOException, ParseException{
 			List<String> result=new ArrayList<String>();
 
+//        File file2 = new ClassPathResource("application.properties").getFile();
+//
+//        System.out.println(" 000000000---------------------------------------------------------------------000000000000000000000000000");
 
-			ClassPathResource classPathResource = new ClassPathResource(indexedDirectoryName);
+        ClassPathResource classPathResource = new ClassPathResource(indexedDirectoryName);
+
+
+
 			String indexedDirectory =classPathResource.getURL().getPath();
 
-			IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get(indexedDirectory)));
+        System.out.println("---1-- "+indexedDirectory);
+        System.out.println("NIOFSDirectory.open(Paths.get(indexedDirectoryName)) == " + NIOFSDirectory.open(Paths.get(indexedDirectoryName)));
 
-			//Query Analyzer
+
+        File file = new File(FSDirectory.open(Paths.get(indexedDirectoryName)).getDirectory().toString());
+
+		File tobeCopied = new File(indexedDirectory);
+
+    //    URL resource = this.getClass().getClassLoader().getResource("segments_1");
+
+//
+//		FileUtils.copyDirectory(tobeCopied,file);
+//      //  FileUtils.copyDirectory(new File(indexedDirectoryName+"murRU"),file);
+//        if(!file.exists()){
+//            System.out.println("aaya ");
+//			FileUtils.copyDirectory(tobeCopied,file);
+//         //   FileUtils.copyDirectory(new File(indexedDirectoryName),file);
+//        }
+
+
+//	"	MMapDirectory@/Users/Manish/Documents/Academic/OOSD/IUHelp/indexeddocs' "
+
+      IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get("//Users//Manish//Desktop//indexeddocs")));
+        System.out.println("v--v> ");
+  //      IndexReader r = DirectoryReader.open(NIOFSDirectory.open(Paths.get(indexedDirectoryName)));
+
+        //IndexReader r = DirectoryReader.open(FSDirectory.open(Paths));
+
+        //Query Analyzer
 
 			Analyzer a=new StandardAnalyzer();
 			Similarity sim=new BM25Similarity();
