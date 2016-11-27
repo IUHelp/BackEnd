@@ -234,7 +234,7 @@ function showButtons(style) {
 	}
 	current_style = style;
 //	copy_button.style.display = style;
-	email_button.style.display = style;
+	//email_button.style.display = style;
 	copy_info.style.display = 'none';
 	email_info.style.display = 'none';
 }
@@ -268,7 +268,7 @@ function httpGetAsync() {
 
 
             var links=response.linksResult;
-            console.log()
+            console.log("hello")
 		    console.log(response);
 			alert(response.results);
 		}
