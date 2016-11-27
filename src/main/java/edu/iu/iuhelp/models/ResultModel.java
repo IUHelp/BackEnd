@@ -3,6 +3,7 @@ package edu.iu.iuhelp.models;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sujeet on 11/15/16.
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 public class ResultModel {
 
     private String textResult;
+    private List<String> linksResult;
 
     public String getTextResult() {
         return textResult;
@@ -21,15 +23,15 @@ public class ResultModel {
         this.textResult = textResult;
     }
 
-    public ArrayList<String> getLinksResult() {
+    public List<String> getLinksResult() {
         return linksResult;
     }
 
-    public void setLinksResult(ArrayList<String> linksResult) {
+    public void setLinksResult(List<String> linksResult) {
         this.linksResult = linksResult;
     }
 
-    private ArrayList<String> linksResult;
+
 
 
 }

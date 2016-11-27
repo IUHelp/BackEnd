@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Sujeet Kumar on 11/4/16.
@@ -39,15 +40,15 @@ public class SearchController {
 
         System.out.println(" hitting search");
         JSONObject jsonObject = new JSONObject();
+        String jsonValue = null;
 
         try{
-
-            ArrayList<String> list = (ArrayList<String>) searchIndex.getResult(searchQuery);
+            List<String> list =  searchIndex.getResult(searchQuery);
 
             ObjectMapper objectMapper = new ObjectMapper();
             resultModel.setTextResult(" Dummy Result");
             resultModel.setLinksResult(list);
-             String jsonValue = null;
+
 
             jsonValue = objectMapper.writeValueAsString(resultModel);
             jsonObject.put("results", jsonValue);
@@ -58,8 +59,10 @@ public class SearchController {
             e.printStackTrace();
         }
 
-        System.out.println(jsonObject.toString());
-        return jsonObject.toString();
+     //   System.out.println(jsonObject.toString().replaceAll("\\",""));
+        System.out.println(jsonValue);
+//        return jsonObject.toString().replaceAll("\\.","");
+        return jsonValue;
     }
 
 }

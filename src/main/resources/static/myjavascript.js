@@ -233,7 +233,7 @@ function showButtons(style) {
 		return;
 	}
 	current_style = style;
-	copy_button.style.display = style;
+//	copy_button.style.display = style;
 	email_button.style.display = style;
 	copy_info.style.display = 'none';
 	email_info.style.display = 'none';
@@ -259,8 +259,14 @@ function httpGetAsync() {
 			console.log(xhr.responseText);
 		},
 		success : function(response) {
-		    console.log(response);
-			alert(response.results);
+//
+		 //  var obj = JSON.parse(response);
+		 console.log(response.linksResult)
+
+//		    console.log(obj.linksResult);
+//		    console.log('---- !');
+//		    console.log(obj.response.results.linksResult);
+			console.log(response[0].result);
 		}
 	});
 }
