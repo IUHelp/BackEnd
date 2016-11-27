@@ -259,6 +259,9 @@ function httpGetAsync() {
 			console.log(xhr.responseText);
 		},
 		success : function(response) {
+
+            var links=response.linksResult;
+            console.log()
 		    console.log(response);
 			alert(response.results);
 		}
