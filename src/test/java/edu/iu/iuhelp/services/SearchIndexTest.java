@@ -43,12 +43,8 @@ public class SearchIndexTest {
             List<String> result = searchIndex.getResult(this.query);
 
             Assert.assertNotNull(result);
-//            Assert.assertNotNull("List shouldn't be null", result);
-//            Assert.assertEquals("wrong size", 3, result.size());
-//            Assert.assertEquals("Wrong 1st element", "Customer1", result.get(0));
-//            Assert.assertEquals("Wrong 2nd element", "Customer2", result.get(1));
-//            Assert.assertEquals("Wrong 3rd element", "Customer3", result.get(2));
-//
+            Assert.assertNotEquals(0,result.size());
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
