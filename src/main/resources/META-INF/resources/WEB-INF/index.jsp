@@ -143,19 +143,15 @@
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-      <form class="navbar-form navbar-right">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        
-      </form>
+
+        <button data-toggle="collapse" data-target="#voicediv" class="btn btn-default">Text Search</button>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
-
+<div id="voicediv">
 
  <!-- <h1 class="center" id="headline"> -->
  <!--  <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">
@@ -202,4 +198,5 @@
   </div>
 </div>
 
+</div>
 <script type="text/javascript" src="myjavascript.js"></script>

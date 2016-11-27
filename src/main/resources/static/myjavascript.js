@@ -259,14 +259,18 @@ function httpGetAsync() {
 			console.log(xhr.responseText);
 		},
 		success : function(response) {
-//
-		 //  var obj = JSON.parse(response);
+
 		 console.log(response.linksResult)
 
 //		    console.log(obj.linksResult);
 //		    console.log('---- !');
 //		    console.log(obj.response.results.linksResult);
-			console.log(response[0].result);
+
+
+            var links=response.linksResult;
+            console.log()
+		    console.log(response);
+			alert(response.results);
 		}
 	});
 }
