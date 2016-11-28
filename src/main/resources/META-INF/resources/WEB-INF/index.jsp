@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,12 +48,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-</head>
-<meta charset="utf-8">
-<title>Web Speech API Demo</title>
 <style>
   * {
     font-family: Verdana, Arial, sans-serif;
@@ -87,7 +82,7 @@
   }
   .final {
     color: black;
-    padding-right: 3px; 
+    padding-right: 3px;
   }
   .interim {
     color: gray;
@@ -132,40 +127,44 @@
     padding: 0;
   }
 </style>
+</head>
 
+<body>
 
 <nav class="navbar navbar-default" style="background-color: #7A1705">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      
-      <a class="navbar-brand" href="">
-        <img alt="Brand" src="images/iub.png"> 
-      </a>
-      
-    </div>
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="">
+            <img alt="Brand" src="images/iub.png">
+          </a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+           <form class="navbar-form navbar-right">
 
-        <button class="btn btn-primary" data-toggle="collapse" data-target="#voicediv" class="btn btn-default">Text Search</button>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+              <button type="button" class="btn btn-success"> Voice Search</button>
+              <button type="button" class= "btn btn-primary"> Text Search</button>
+           </form>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
 </nav>
 
-<div class="row">
+
+
+<div class="container-fluid">
+  <div class="collapse in" id="searchbox">
         <div class="col-md-4 col-md-offset-3">
             <form action="" class="search-form">
                 <div class="form-group has-feedback">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
-              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-            	</div>
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                      <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
             </form>
         </div>
-    </div>
+  </div>
+</div>
 
-    <div id="voicediv">
+<div class="collapse" id="hello">
 
          <!-- <h1 class="center" id="headline"> -->
          <!--  <a href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">
@@ -198,29 +197,41 @@
           <p>
         </div>
         <div class="center">
-          <div class="sidebyside" style="text-align:right">
-            <button type="submit" class="btn btn-default" onclick="httpGetAsync()">Submit</button>
-            <!-- <div id="copy_info" class="info">
-              Press Control-C to copy text.<br>(Command-C on Mac.)
-            </div> -->
-          </div>
+              <div class="sidebyside" style="text-align:right">
+                <button type="submit" class="btn btn-default" onclick="httpGetAsync()">Submit</button>
+                <!-- <div id="copy_info" class="info">
+                  Press Control-C to copy text.<br>(Command-C on Mac.)
+                </div> -->
+              </div>
           <p>
-          <div id="div_language">
-            <select id="select_language" onchange="updateCountry()"></select>
-            &nbsp;&nbsp;
-            <select id="select_dialect"></select>
-          </div>
+              <div id="div_language">
+                <select id="select_language" onchange="updateCountry()"></select>
+                &nbsp;&nbsp;
+                <select id="select_dialect"></select>
+              </div>
         </div>
 
-    </div>
+</div>
 
+
+<script>
+$(document).ready(function(){
+    $(".btn-success").click(function(){
+        $("#hello").collapse('show');
+        $("#searchbox").collapse('hide');
+    });
+    $(".btn-primary").click(function(){
+        $("#hello").collapse('hide');
+        $("#searchbox").collapse('show');
+    });
+});
+</script>
 
     <!-- to display search results -->
 
-    <div class="container" id ="SearchResult">
+    <div class="container" id ="SearchResult"></div>
 
-
-    </div>
-
-    <div id="demo"></div>
 <script type="text/javascript" src="myjavascript.js"></script>
+
+</body>
+</html>
