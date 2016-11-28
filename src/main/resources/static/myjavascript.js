@@ -247,6 +247,7 @@ function showButtons(style) {
 function httpGetAsync() {
 	
 	var json = JSON.stringify(final_transcript);
+	 var link = null;
 	console.log('sole');
 	$.ajax({
 		headers : {
@@ -270,7 +271,7 @@ function httpGetAsync() {
 
 		 for (var i = 0; i < response.linksResult.length; i++) {
 
-		 var link = response.linksResult[i];
+		 link = response.linksResult[i];
 
         	 $('<div class="container"><label for="locationSearch"><a target="_blank" href="'+link+'">'
              + link
