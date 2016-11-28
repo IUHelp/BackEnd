@@ -289,6 +289,52 @@ function httpGetAsync() {
 
 
 
+function httpGetAsyncText() {
+
+	var json = JSON.stringify(document.getElementById("search").value);
+	 var link = null;
+	 var searchTerm = document.getElementById("search").value;
+	 $("div").remove(".res");
+	 $("#hello").collapse('hide');
+     $("#searchbox").collapse('hide');
+	console.log('sole');
+	$.ajax({
+
+
+		headers : {
+			'Accept' : 'application/json',
+			'Content-Type' : 'application/json'
+		},
+		dataType : "json",
+		type : "GET",
+		url : "/search?searchQuery="+searchTerm,
+		data : json,
+		error : function(xhr, err) {
+			alert("readyState: " + xhr.readyState + "\nstatus: "
+			+ xhr.status);
+			alert("responseText: " + xhr.responseText + " " + err);
+			console.log(xhr.responseText);
+		},
+		success : function(response) {
+
+         console.log('result length --');
+		 console.log(response.linksResult.length);
+
+		 for (var i = 0; i < response.linksResult.length; i++) {
+
+		 link = response.linksResult[i];
+
+        	 $('<div class="res"><div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
+             + link
+             + '</a></label></div></div>').appendTo('#SearchResult');
+
+		 }
+		}
+	});
+}
+
+
+
 
 
 

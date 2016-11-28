@@ -153,13 +153,14 @@
 <div class="container-fluid">
   <div class="collapse in" id="searchbox">
         <div class="col-md-4 col-md-offset-3">
-            <form action="" class="search-form">
+
                 <div class="form-group has-feedback">
                     <label for="search" class="sr-only">Search</label>
-                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                    <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
                       <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    <button type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
                 </div>
-            </form>
+
         </div>
   </div>
 </div>
@@ -199,7 +200,7 @@
         </div>
         <div class="center">
               <div class="sidebyside" style="text-align:right">
-                <button type="submit" class="btn btn-default" onclick="httpGetAsync()">Submit</button>
+                <button type="submit" class="btn btn-default" onclick="httpGetAsync()">Search</button>
                 <!-- <div id="copy_info" class="info">
                   Press Control-C to copy text.<br>(Command-C on Mac.)
                 </div> -->
@@ -230,7 +231,7 @@ $(document).ready(function(){
 </script>
 
     <!-- to display search results -->
-
+    <br>
     <div class="container" id ="SearchResult"></div>
 
 <script type="text/javascript" src="myjavascript.js"></script>
