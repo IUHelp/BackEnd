@@ -248,8 +248,11 @@ function httpGetAsync() {
 	
 	var json = JSON.stringify(final_transcript);
 	 var link = null;
+	 $("#SearchResult").empty();
 	console.log('sole');
 	$.ajax({
+
+
 		headers : {
 			'Accept' : 'application/json',
 			'Content-Type' : 'application/json'
@@ -273,7 +276,7 @@ function httpGetAsync() {
 
 		 link = response.linksResult[i];
 
-        	 $('<div class="container"><label for="locationSearch"><a target="_blank" href="'+link+'">'
+        	 $('<div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
              + link
              + '</a></label></div>').appendTo('#SearchResult');
 
