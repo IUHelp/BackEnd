@@ -245,23 +245,6 @@ function showButtons(style) {
 }
 
 function httpGetAsync() {
-//
-//
-//  var xhttp;
-//  if (window.XMLHttpRequest) {
-//      xhttp = new XMLHttpRequest();
-//      } else {
-//      // code for IE6, IE5
-//      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
-//  }
-//  xhttp.onreadystatechange = function() {
-//    if (this.readyState == 4 && this.status == 200) {
-//     document.getElementById("demo").innerHTML = this.responseText;
-//    }
-//  };
-//  xhttp.open("GET", "/search?searchQuery="+final_transcript, true);
-//  xhttp.send();
-
 	
 	var json = JSON.stringify(final_transcript);
 	console.log('sole');
@@ -282,7 +265,7 @@ function httpGetAsync() {
 		},
 		success : function(response) {
 
-         console.log('result lenth --');
+         console.log('result length --');
 		 console.log(response.linksResult.length);
 
 		 for (var i = 0; i < response.linksResult.length; i++) {

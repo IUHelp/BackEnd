@@ -134,12 +134,12 @@
 </style>
 
 
-<nav class="navbar navbar-default" style="background-color: #7A1705;min-height: 80px">
+<nav class="navbar navbar-default" style="background-color: #7A1705">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="">
         <img alt="Brand" src="images/iub.png"> 
       </a>
       
@@ -147,7 +147,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-        <button data-toggle="collapse" data-target="#voicediv" class="btn btn-default">Text Search</button>
+        <button class="btn btn-primary" data-toggle="collapse" data-target="#voicediv" class="btn btn-default">Text Search</button>
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
