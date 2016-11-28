@@ -272,7 +272,7 @@ function httpGetAsync() {
 
 		 var link = response.linksResult[i];
 
-        	 $('<div class="container"><label for="locationSearch"><a href="'+link+'">'
+        	 $('<div class="container"><label for="locationSearch"><a target="_blank" href="'+link+'">'
              + link
              + '</a></label></div>').appendTo('#SearchResult');
 
