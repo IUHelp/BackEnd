@@ -235,12 +235,33 @@ function showButtons(style) {
 	}
 	current_style = style;
 //	copy_button.style.display = style;
+
 //	email_button.style.display = style;
+
+	//email_button.style.display = style;
+
 	copy_info.style.display = 'none';
 	email_info.style.display = 'none';
 }
 
 function httpGetAsync() {
+//
+//
+//  var xhttp;
+//  if (window.XMLHttpRequest) {
+//      xhttp = new XMLHttpRequest();
+//      } else {
+//      // code for IE6, IE5
+//      xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//  }
+//  xhttp.onreadystatechange = function() {
+//    if (this.readyState == 4 && this.status == 200) {
+//     document.getElementById("demo").innerHTML = this.responseText;
+//    }
+//  };
+//  xhttp.open("GET", "/search?searchQuery="+final_transcript, true);
+//  xhttp.send();
+
 	
 	var json = JSON.stringify(final_transcript);
 	console.log('sole');
