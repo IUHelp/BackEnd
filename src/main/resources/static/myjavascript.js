@@ -1,3 +1,4 @@
+
 var langs = [
 		[ 'Afrikaans', [ 'af-ZA' ] ],
 		[ 'Bahasa Indonesia', [ 'id-ID' ] ],
@@ -234,7 +235,7 @@ function showButtons(style) {
 	}
 	current_style = style;
 //	copy_button.style.display = style;
-	email_button.style.display = style;
+//	email_button.style.display = style;
 	copy_info.style.display = 'none';
 	email_info.style.display = 'none';
 }
@@ -260,17 +261,18 @@ function httpGetAsync() {
 		},
 		success : function(response) {
 
-		 console.log(response.linksResult)
+         console.log('result lenth --');
+		 console.log(response.linksResult.length);
 
-//		    console.log(obj.linksResult);
-//		    console.log('---- !');
-//		    console.log(obj.response.results.linksResult);
+		 for (var i = 0; i < response.linksResult.length; i++) {
 
+		 var link = response.linksResult[i];
 
-            var links=response.linksResult;
-            console.log()
-		    console.log(response);
-			alert(response.results);
+        	 $('<div class="container"><label for="locationSearch"><a href="'+link+'">'
+             + link
+             + '</a></label></div>').appendTo('#SearchResult');
+
+		 }
 		}
 	});
 }
