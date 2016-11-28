@@ -7,8 +7,8 @@ import edu.iu.iuhelp.services.SearchIndex;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONObject;
-
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -63,6 +63,26 @@ public class SearchController {
         System.out.println(jsonValue);
 //        return jsonObject.toString().replaceAll("\\.","");
         return jsonValue;
+    }
+    
+    private static String generateContent(String url){
+    	// TODO Auto-generated method stub
+		
+        System.out.println("Fetching "+url);
+        String result = null;
+        try {
+        		         
+            org.jsoup.nodes.Document doc = Jsoup.connect(url).get();
+			Element body = doc.body();
+			body.select("script, header, style, .hidden, form .search-bar").remove();
+			result = body.text();
+		
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		}
+        return result;
+    	
     }
 
 }
