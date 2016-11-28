@@ -249,6 +249,8 @@ function httpGetAsync() {
 	var json = JSON.stringify(final_transcript);
 	 var link = null;
 	 $("div").remove(".res");
+	 $("#hello").collapse('hide');
+     $("#searchbox").collapse('hide');
 	console.log('sole');
 	$.ajax({
 

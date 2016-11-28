@@ -164,6 +164,7 @@
   </div>
 </div>
 
+<div class="container">
 <div class="collapse" id="hello">
 
          <!-- <h1 class="center" id="headline"> -->
@@ -211,6 +212,7 @@
               </div>
         </div>
 
+</div>
 </div>
 
 
