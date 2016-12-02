@@ -1,9 +1,6 @@
 package edu.iu.iuhelp.controllers;
-
-
 import edu.iu.iuhelp.models.ResultModel;
 import edu.iu.iuhelp.services.SearchIndex;
-
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.json.JSONObject;
@@ -15,12 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * Created by Sujeet Kumar on 11/4/16.
  */

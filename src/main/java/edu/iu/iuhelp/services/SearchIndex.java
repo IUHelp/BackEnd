@@ -2,6 +2,9 @@ package edu.iu.iuhelp.services;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 
 import org.apache.lucene.analysis.Analyzer;
@@ -15,14 +18,37 @@ import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.BM25Similarity;
+import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.Similarity;
+import org.apache.lucene.search.similarities.TFIDFSimilarity;
 import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SearchIndex {
-
+	class Docs{
+		double score;
+		String link;
+		String title;
+		String content;
+		Docs(double x,String t,String l,String c){
+			this.score=x;
+			this.link=l;
+			this.content=c;
+			this.title=t;
+		}
+	}
+	class CustomComparator implements Comparator<Docs> {
+	    public int compare(Docs a, Docs b) {
+	        if(a.score<b.score)
+	        	return 1;
+	        else
+	        	if(a.score>b.score)
+	        		return -1;
+	        return 0;
+	    }
+	}
 	@Value("${resource.indexed.folder.name}")
 	private String indexedDirectoryPath;
 
@@ -33,23 +59,51 @@ public class SearchIndex {
 		//Query Analyzer
 
 		Analyzer a=new StandardAnalyzer();
+		//First Similarity
 		Similarity sim=new BM25Similarity();
 
-			//"summary" identifies which field you are searching in.
+		//"summary" identifies which field you are searching in.
 		QueryParser parser = new QueryParser("summary", a);
 		org.apache.lucene.search.Query query = parser.parse(QueryParser.escape(Query));
+		
 		IndexSearcher searchIndexDoc =new IndexSearcher(DirectoryReader.open(FSDirectory.open(Paths.get(indexedDirectoryPath))));
 		searchIndexDoc.setSimilarity(sim);
 		TopDocs results = searchIndexDoc.search(query, 10);
 		ScoreDoc[] hits=results.scoreDocs;
-
-			for(int i=0;i<hits.length;i++){
-				Document doc=searchIndexDoc.doc(hits[i].doc);
-				String temp="";
-				temp+=doc.get("path");
-				result.add(temp);
-				System.out.println(temp);
+		
+		//Second Similarity
+		sim=new ClassicSimilarity();
+		searchIndexDoc.setSimilarity(sim);
+		results=searchIndexDoc.search(query, 10);
+		ScoreDoc[] hits1=results.scoreDocs;
+		
+		List<Docs> l=new ArrayList<Docs>();
+		
+		for(int i=0;i<hits.length;i++){
+			Document doc=searchIndexDoc.doc(hits[i].doc);
+			l.add(new Docs(hits[i].score,doc.get("title"),doc.get("path"),doc.get("summary")));
+		}
+		boolean f=false;
+		int j;
+		for(int i=0;i<hits1.length;i++){
+			f=false;
+			Document doc=searchIndexDoc.doc(hits1[i].doc);
+			for(j=0;j<l.size();j++){
+				if(l.get(j).link.equals(doc.get("path"))){
+					f=true;
+					break;
+				}
 			}
+			if(f)
+				l.get(j).score+=hits1[i].score;
+			else
+				l.add(new Docs(hits1[i].score,doc.get("title"),doc.get("path"),doc.get("summary")));
+		}
+		Collections.sort(l,new CustomComparator());
+		for(int i=0;i<l.size();i++){
+			result.add(l.get(i).link);
+			System.out.println(l.get(i).link+l.get(i).title);
+		}
 		 return result;
 	}
 }
