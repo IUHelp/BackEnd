@@ -162,7 +162,7 @@
                     <label for="search" class="sr-only">Search</label>
                     <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
                       <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    <button type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
                 </div>
 
         </div>
@@ -220,6 +220,14 @@
 </div>
 </div>
 
+<script>
+
+$("#search").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#searchbutton").click();
+    }
+});
+</script>
 
 <script>
 $(document).ready(function(){
