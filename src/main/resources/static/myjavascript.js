@@ -324,8 +324,8 @@ function httpGetAsyncText() {
 
 		 link = response.linksResult[i];
 
-        	 $('<div class="res"><div class="card card-inverse" style="background-color: #333; border-color: #333;"><div class="card-block"><h3 class="card-title">Search Result</h3><p class="card-text">'
-             + link + '</p><a  href='+link+' target="_blank" class ="btn btn-primary">Go to link</a></div></div></div><br><br>').appendTo('#SearchResult');
+        	 $('<div class="res"><div class="card card-inverse" style="background-color: #333; border-color: #333;"><div class="card-block" style="width: 18rem;"><h3 class="card-title">Search Result</h3><p class="card-text"><font color="white">'
+             + link + '</font></p><a  href='+link+' target="_blank" class ="btn btn-primary">Go to link</a></div></div></div><br><br>').appendTo('#SearchResult');
 
 		 }
 		}
