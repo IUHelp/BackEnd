@@ -320,14 +320,18 @@ function httpGetAsyncText() {
          console.log('result length --');
 		 console.log(response.linksResult.length);
 
+         $('<div class="container-fluid"><ul class="list-group">')
 		 for (var i = 0; i < response.linksResult.length; i++) {
 
-		 link = response.linksResult[i];
+		    link = response.linksResult[i];
 
-        	 $('<div class="res"><div class="card card-inverse" style=" border-color: #333;"><img class="card-img-top" src="images/iub.png" alt="IU logo"><div class="card-block" style="width: 18rem; background-color: #333;"><h3 class="card-title"><font color="white">Search Result</font></h3><p class="card-text"><font color="white">'
-             + link + '</font></p><a  href='+link+' target="_blank" class ="btn btn-primary">Go to link</a></div></div></div><br><br>').appendTo('#SearchResult');
+        	 $('<div class="res"><a target="_blank" href='+link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">14</span>'
+                          + link
+                          + '</li></a></div>').appendTo('#SearchResult');
 
 		 }
+
+        $('</ul></div>')
 		}
 	});
 }
