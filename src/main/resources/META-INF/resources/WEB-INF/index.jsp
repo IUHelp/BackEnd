@@ -232,6 +232,7 @@ $(document).ready(function(){
 
     <!-- to display search results -->
     <br>
+    <br>
     <div class="container" id ="SearchResult"></div>
 
 <script type="text/javascript" src="myjavascript.js"></script>
