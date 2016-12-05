@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="card.css">
     <style>
     #view-source {
       position: fixed;
@@ -48,6 +48,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
 <style>
   * {
     font-family: Verdana, Arial, sans-serif;
@@ -233,6 +234,9 @@ $(document).ready(function(){
     <!-- to display search results -->
     <br>
     <div class="container" id ="SearchResult"></div>
+
+
+
 
 <script type="text/javascript" src="myjavascript.js"></script>
 

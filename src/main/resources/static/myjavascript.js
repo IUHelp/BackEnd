@@ -70,6 +70,19 @@ var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
+var randomUUID = generateUUID();
+
+function generateUUID() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
+}
+
+
 /*
  * The default value for continuous is false, meaning that when the user stops
  * talking, speech recognition will end
@@ -261,7 +274,7 @@ function httpGetAsync() {
 		},
 		dataType : "json",
 		type : "GET",
-		url : "/search?searchQuery="+final_transcript,
+		url : "/search?searchQuery="+final_transcript+"&tempUserUUID="+randomUUID,
 		data : json,
 		error : function(xhr, err) {
 			alert("readyState: " + xhr.readyState + "\nstatus: "
@@ -307,7 +320,7 @@ function httpGetAsyncText() {
 		},
 		dataType : "json",
 		type : "GET",
-		url : "/search?searchQuery="+searchTerm,
+		url : "/search?searchQuery="+searchTerm+"&tempUserUUID="+randomUUID,
 		data : json,
 		error : function(xhr, err) {
 			alert("readyState: " + xhr.readyState + "\nstatus: "
@@ -317,6 +330,7 @@ function httpGetAsyncText() {
 		},
 		success : function(response) {
 
+         console.log(response);
          console.log('result length --');
 		 console.log(response.linksResult.length);
 
@@ -324,9 +338,19 @@ function httpGetAsyncText() {
 
 		 link = response.linksResult[i];
 
-        	 $('<div class="res"><div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
-             + link
-             + '</a></label></div></div>').appendTo('#SearchResult');
+//        	 $('<div class="res"><div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
+//             + link
+//             + '</a></label></div></div>').appendTo('#SearchResult');
+
+
+            $('<div class="res"><div class="block-update-card status">'
+                   + '<div class="h-status">'
+                   + '<div class="update-card-body">'
+                   + '<a target="_blank" href="'+link+'">'
+                                 + link
+                                 + '</a>'
+                                 + ' <p> try wokr </p>'
+                   + '</div></div></div></div>').appendTo('#SearchResult');
 
 		 }
 		}

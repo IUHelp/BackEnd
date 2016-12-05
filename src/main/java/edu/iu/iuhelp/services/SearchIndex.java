@@ -49,6 +49,7 @@ public class SearchIndex {
 				temp+=doc.get("path");
 				result.add(temp);
 				System.out.println(temp);
+				System.out.println();
 			}
 		 return result;
 	}
