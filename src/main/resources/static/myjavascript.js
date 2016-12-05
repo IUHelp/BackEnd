@@ -344,12 +344,12 @@ function httpGetAsyncText() {
 
                for (var i = 0; i < response.linksResult.length; i++) {
 
-                  if (i==0){
+                  /*if (i==0){
 
                     $('<div class="container-fluid"><ul class="list-group">')
                                      $('<div class="container-fluid"><button type="button" id="seemore" data-toggle="collapse" data-target="#info" class="btn btn-success"> see more </button></div>')
                                      $('<div class="collapse" id ="info">'+ maincontent+'</div>').appendTo('#SearchResult');
-                  }
+                  }*/
                   link = response.linksResult[i];
                   var content = link.content ;
                   content = content.substring(300,500);
