@@ -22,11 +22,18 @@
     <meta name="msapplication-TileColor" content="#3372DF">
 
     <link rel="shortcut icon" href="images/iu.png">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="material.min.css">
+
     <link rel="stylesheet" href="card.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
     <style>
     #view-source {
       position: fixed;
@@ -127,6 +134,13 @@
     background-color:transparent;
     padding: 0;
   }
+  .feedback{
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-right: 25%;
+   margin-left: 25%;
+}
+  
 </style>
 </head>
 
@@ -141,9 +155,9 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
            <form class="navbar-form navbar-right">
-
               <button type="button" class="btn btn-success"> Voice Search</button>
               <button type="button" class= "btn btn-primary"> Text Search</button>
+              <button type="button" class="btn btn-info"> Feedback</button>
            </form>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -159,9 +173,8 @@
                     <label for="search" class="sr-only">Search</label>
                     <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
                       <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                    <button type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
                 </div>
-
         </div>
   </div>
 </div>
@@ -217,21 +230,62 @@
 </div>
 </div>
 
+<script>
+
+$("#search").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#searchbutton").click();
+    }
+});
+</script>
+
+
+<div class="container">
+  <div class="collapse" id="form">
+      <div class= "feedback">
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="input" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <small id="emailHelp" class="form-text text-muted">Please enter the IU Email address</small>
+      </div>
+      <div class="form-group">
+        <label for="Textarea">Comments</label>
+        <textarea class="form-control" id="Textarea" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  </div>
+</div>  
+
 
 <script>
 $(document).ready(function(){
     $(".btn-success").click(function(){
         $("#hello").collapse('show');
         $("#searchbox").collapse('hide');
+        $("#form").collapse('hide');
     });
     $(".btn-primary").click(function(){
         $("#hello").collapse('hide');
         $("#searchbox").collapse('show');
+        $("#form").collapse('hide');
+    });
+     $(".btn-info").click(function(){
+        $("#hello").collapse('hide');
+        $("#searchbox").collapse('hide');
+        $("#form").collapse('show');
     });
 });
 </script>
 
     <!-- to display search results -->
+    <br>
     <br>
     <div class="container" id ="SearchResult"></div>
 
