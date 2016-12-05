@@ -339,10 +339,11 @@ function httpGetAsyncText() {
                 var maincontent = response.textResult;
 
 
-                $('<div class="container-fluid"><button type="button" id="seemore" data-toggle="collapse" data-target="#info" class="btn btn-success"> see more </button></div>')
-                $('<div class="collapse" id ="info">'+ maincontent+'</div>')
+
 
                  $('<div class="container-fluid"><ul class="list-group">')
+                 $('<div class="container-fluid"><button type="button" id="seemore" data-toggle="collapse" data-target="#info" class="btn btn-success"> see more </button></div>')
+                 $('<div class="collapse" id ="info">'+ maincontent+'</div>')
                for (var i = 0; i < response.linksResult.length; i++) {
 
                   link = response.linksResult[i];
@@ -351,7 +352,7 @@ function httpGetAsyncText() {
 
                     $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
                                   + link.title
-                                  + '<br></a><div>'+content+'</div></li></div>').appendTo('#SearchResult');
+                                  + '<br></a></li></div>').appendTo('#SearchResult');
                }
                 $('</ul></div>')
               }
