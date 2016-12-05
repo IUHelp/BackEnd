@@ -309,6 +309,8 @@ function httpGetAsyncText() {
 	 var link = null;
 	 var searchTerm = document.getElementById("search").value;
 	 $("div").remove(".res");
+	 $("div").remove("#seemore");
+
 	 $("#hello").collapse('hide');
      $("#searchbox").collapse('hide');
 	console.log('sole');
@@ -334,13 +336,18 @@ function httpGetAsyncText() {
                  console.log('result length --');
                  console.log(response);
                console.log(response.linksResult.length);
+                var maincontent = response.textResult;
+
+
+                $('<div class="container-fluid"><button type="button" id="seemore" data-toggle="collapse" data-target="#info" class="btn btn-success"> see more </button></div>')
+                $('<div class="collapse" id ="info">'+ maincontent+'</div>')
 
                  $('<div class="container-fluid"><ul class="list-group">')
                for (var i = 0; i < response.linksResult.length; i++) {
 
                   link = response.linksResult[i];
                   var content = link.content ;
-                  content = content.substring(0,100);
+                  content = content.substring(300,500);
 
                     $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
                                   + link.title
