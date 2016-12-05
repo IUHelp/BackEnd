@@ -1,5 +1,6 @@
 package edu.iu.iuhelp.controllers;
 
+import edu.iu.iuhelp.models.ResultDocs;
 import edu.iu.iuhelp.models.ResultModel;
 import edu.iu.iuhelp.models.UserQueryModel;
 import edu.iu.iuhelp.services.*;
@@ -66,12 +67,12 @@ public class SearchController {
         String jsonValue = null;
 
         try{
-            List<String> list =  searchIndex.getResult(searchQuery);
+            List<ResultDocs> list =  searchIndex.getResult(searchQuery);
 
             String result = "";
 
             if(list.size()!=0){
-                result = extractDiv.getRelevantDiv(list.get(0),searchQuery);
+                result = extractDiv.getRelevantDiv(list.get(0).getLink(),searchQuery);
 //                extractUrl.getUrlContents(list.get(0));
             }
 
@@ -90,7 +91,7 @@ public class SearchController {
         }
 
      //   System.out.println(jsonObject.toString().replaceAll("\\",""));
-        System.out.println(jsonValue);
+     //   System.out.println(jsonValue);
 //        return jsonObject.toString().replaceAll("\\.","");
         return jsonValue;
     }

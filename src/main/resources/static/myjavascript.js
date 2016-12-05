@@ -330,39 +330,21 @@ function httpGetAsyncText() {
 		},
 		success : function(response) {
 
-         console.log(response);
-         console.log('result length --');
-		 console.log(response.linksResult.length);
+                 console.log('result length --');
+                 console.log(response);
+               console.log(response.linksResult.length);
 
-         $('<div class="container-fluid"><ul class="list-group">')
-		 for (var i = 0; i < response.linksResult.length; i++) {
+                 $('<div class="container-fluid"><ul class="list-group">')
+               for (var i = 0; i < response.linksResult.length; i++) {
 
-		    link = response.linksResult[i];
+                  link = response.linksResult[i];
 
-
-//        	 $('<div class="res"><div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
-//             + link
-//             + '</a></label></div></div>').appendTo('#SearchResult');
-
-
-            $('<div class="res"><div class="block-update-card status">'
-                   + '<div class="h-status">'
-                   + '<div class="update-card-body">'
-                   + '<a target="_blank" href="'+link+'">'
-                                 + link
-                                 + '</a>'
-                                 + ' <p> try wokr </p>'
-                   + '</div></div></div></div>').appendTo('#SearchResult');
-
-//        	 $('<div class="res"><a target="_blank" href='+link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">14</span>'
-//                          + link
-//                          + '</li></a></div>').appendTo('#SearchResult');
-
-
-		 }
-
-        $('</ul></div>')
-		}
+                    $('<div class="res"><a target="_blank" href='+link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">14</span>'
+                                  + link
+                                  + '</li></a></div>').appendTo('#SearchResult');
+               }
+                $('</ul></div>')
+              }
 	});
 }
 

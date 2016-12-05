@@ -19,8 +19,9 @@ public class ExtractDiv {
         String searchText = extractUrl.getUrlContents(topUrl);
         searchText = searchText.toLowerCase();
 
+
         // search query after stemming and removing stop word removal
-         searchQuery = searchQuery.toLowerCase().trim();
+        searchQuery = searchQuery.toLowerCase().trim();
         String[] searchQueryTokens = searchQuery.split("\\s+");
         for (int i = 0; i < searchQueryTokens.length; i++) {
 
@@ -28,10 +29,13 @@ public class ExtractDiv {
             searchQueryTokens[i] = searchQueryTokens[i].replaceAll("[^\\w]", "");
         }
 
+
+
         // getting starting offset and ending offset
         int startOffset = searchText.lastIndexOf(searchQueryTokens[0]);
         int endOffset = searchText.lastIndexOf(searchQueryTokens[0]);
-       for (int i=1;i<searchQueryTokens.length;i++){
+
+        for (int i=1;i<searchQueryTokens.length;i++){
 
             int index = searchText.indexOf(searchQueryTokens[i]);
              if (index >= endOffset){
@@ -42,12 +46,11 @@ public class ExtractDiv {
             if (index <= startOffset){
                 startOffset = index;
             }
-        }
+          }
 
         // getting starting index of <div> just before starting offset
         int index=0;
         int divIndex = searchText.indexOf("<div");
-
         while (divIndex >= 0) {
             divIndex = searchText.indexOf("<div", divIndex + 1);
             if (divIndex <= startOffset){
@@ -55,8 +58,8 @@ public class ExtractDiv {
             }else{
                 break;
             }
-        }
 
+        }
         divIndex = index;
 
         // getting starting index of </div> just after ending offset
@@ -72,7 +75,6 @@ public class ExtractDiv {
 
         // prints required text that is to be sent to front end for display
         String text = searchText.substring(divIndex, closedivIndex);
-
-    return text;
+        return text;
     }
 }

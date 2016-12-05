@@ -4,9 +4,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
+import edu.iu.iuhelp.models.ResultDocs;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -20,31 +20,19 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.search.similarities.BM25Similarity;
 import org.apache.lucene.search.similarities.ClassicSimilarity;
 import org.apache.lucene.search.similarities.Similarity;
-import org.apache.lucene.search.similarities.TFIDFSimilarity;
 import org.apache.lucene.store.FSDirectory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SearchIndex {
-	class Docs{
-		double score;
-		String link;
-		String title;
-		String content;
-		Docs(double x,String t,String l,String c){
-			this.score=x;
-			this.link=l;
-			this.content=c;
-			this.title=t;
-		}
-	}
-	class CustomComparator implements Comparator<Docs> {
-		public int compare(Docs a, Docs b) {
-			if(a.score<b.score)
+
+	class CustomComparator implements Comparator<ResultDocs> {
+		public int compare(ResultDocs a, ResultDocs b) {
+			if(a.getScore()<b.getScore())
 				return 1;
 			else
-			if(a.score>b.score)
+			if(a.getScore()>b.getScore())
 				return -1;
 			return 0;
 		}
@@ -52,7 +40,7 @@ public class SearchIndex {
 	@Value("${resource.indexed.folder.name}")
 	private String indexedDirectoryPath;
 
-	public List<String> getResult(String Query) throws IOException, ParseException{
+	public List<ResultDocs> getResult(String Query) throws IOException, ParseException{
 		List<String> result=new ArrayList<String>();
 
 		IndexReader r = DirectoryReader.open(FSDirectory.open(Paths.get(indexedDirectoryPath)));
@@ -77,11 +65,11 @@ public class SearchIndex {
 		results=searchIndexDoc.search(query, 10);
 		ScoreDoc[] hits1=results.scoreDocs;
 
-		List<Docs> l=new ArrayList<Docs>();
+		List<ResultDocs> l=new ArrayList<ResultDocs>();
 
 		for(int i=0;i<hits.length;i++){
 			Document doc=searchIndexDoc.doc(hits[i].doc);
-			l.add(new Docs(hits[i].score,doc.get("title"),doc.get("path"),doc.get("summary")));
+			l.add(new ResultDocs(hits[i].score,doc.get("path"),doc.get("title"),doc.get("summary")));
 		}
 		boolean f=false;
 		int j;
@@ -89,21 +77,22 @@ public class SearchIndex {
 			f=false;
 			Document doc=searchIndexDoc.doc(hits1[i].doc);
 			for(j=0;j<l.size();j++){
-				if(l.get(j).link.equals(doc.get("path"))){
+				if(l.get(j).getLink().equals(doc.get("path"))){
 					f=true;
 					break;
 				}
 			}
 			if(f)
-				l.get(j).score+=hits1[i].score;
+			//	l.get(j).score+=hits1[i].score;
+
+				l.get(j).setScore(l.get(j).getScore()+hits1[i].score);
 			else
-				l.add(new Docs(hits1[i].score,doc.get("title"),doc.get("path"),doc.get("summary")));
+				l.add(new ResultDocs(hits1[i].score,doc.get("path"),doc.get("title"),doc.get("summary")));
 		}
 		Collections.sort(l,new CustomComparator());
 		for(int i=0;i<l.size();i++){
-			result.add(l.get(i).link);
-			System.out.println(l.get(i).link+l.get(i).title);
+			result.add(l.get(i).getLink());
 		}
-		return result;
+		return l;
 	}
 }

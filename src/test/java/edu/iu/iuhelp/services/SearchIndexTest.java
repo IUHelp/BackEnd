@@ -1,5 +1,6 @@
 package edu.iu.iuhelp.services;
 
+import edu.iu.iuhelp.models.ResultDocs;
 import org.apache.lucene.queryparser.classic.ParseException;
 import org.junit.Assert;
 import org.junit.Before;
@@ -40,7 +41,7 @@ public class SearchIndexTest {
 
 
         try {
-            List<String> result = searchIndex.getResult(this.query);
+            List<ResultDocs> result = searchIndex.getResult(this.query);
 
             Assert.assertNotNull(result);
             Assert.assertNotEquals(0,result.size());

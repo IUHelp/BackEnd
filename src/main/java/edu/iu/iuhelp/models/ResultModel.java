@@ -2,7 +2,6 @@ package edu.iu.iuhelp.models;
 
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ import java.util.List;
 public class ResultModel {
 
     private String textResult;
-    private List<String> linksResult;
+    private List<ResultDocs> linksResult;
 
     public String getTextResult() {
         return textResult;
@@ -23,11 +22,11 @@ public class ResultModel {
         this.textResult = textResult;
     }
 
-    public List<String> getLinksResult() {
+    public List<ResultDocs> getLinksResult() {
         return linksResult;
     }
 
-    public void setLinksResult(List<String> linksResult) {
+    public void setLinksResult(List<ResultDocs> linksResult) {
         this.linksResult = linksResult;
     }
 
