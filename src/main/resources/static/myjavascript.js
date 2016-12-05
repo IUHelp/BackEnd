@@ -287,16 +287,17 @@ function httpGetAsync() {
          console.log('result length --');
 		 console.log(response.linksResult.length);
 
-		 for (var i = 0; i < response.linksResult.length; i++) {
+		  $('<div class="container-fluid"><ul class="list-group">')
+                        for (var i = 0; i < response.linksResult.length; i++) {
 
-		 link = response.linksResult[i];
+                           link = response.linksResult[i];
 
-        	 $('<div class="res"><div class="container-fluid"><label for="locationSearch"><a target="_blank" href="'+link+'">'
-             + link
-             + '</a></label></div></div>').appendTo('#SearchResult');
-
-		 }
-		}
+                             $('<div class="res"><a target="_blank" href='+link.link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
+                                           + link.title
+                                           + '</li></a></div>').appendTo('#SearchResult');
+                        }
+                         $('</ul></div>')
+       }
 	});
 }
 
@@ -341,7 +342,7 @@ function httpGetAsyncText() {
 
                     $('<div class="res"><a target="_blank" href='+link.link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
                                   + link.title
-                                  + '</li></a></div>').appendTo('#SearchResult');
+                                  + '<br><div>'+link.content+'</div></li></a></div>').appendTo('#SearchResult');
                }
                 $('</ul></div>')
               }
