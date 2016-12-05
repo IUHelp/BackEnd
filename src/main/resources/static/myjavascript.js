@@ -339,10 +339,12 @@ function httpGetAsyncText() {
                for (var i = 0; i < response.linksResult.length; i++) {
 
                   link = response.linksResult[i];
+                  var content = link.content ;
+                  content = content.substring(0,100);
 
                     $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
                                   + link.title
-                                  + '<br><div>'+link.content+'</div></a></li></div>').appendTo('#SearchResult');
+                                  + '<br></a><div>'+content+'</div></li></div>').appendTo('#SearchResult');
                }
                 $('</ul></div>')
               }
