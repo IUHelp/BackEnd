@@ -159,7 +159,7 @@
 
                    <form class="navbar-form navbar-right">
                       <div class="form-group">
-                          <button type="button" class="btn btn-success"> Voice Search</button>
+                          <button type="button" class="btn btn-success btn-block"> Voice Search</button>
                           <button type="button" class= "btn btn-primary"> Text Search</button>
                           <button type="button" class="btn btn-info"> Feedback</button>
                       </div>
