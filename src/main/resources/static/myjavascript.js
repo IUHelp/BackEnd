@@ -303,13 +303,13 @@ function httpGetAsync() {
 
 
 
-function httpGetAsyncText() {
+function httpGetAsyncText(){
 
 	var json = JSON.stringify(document.getElementById("search").value);
 	 var link = null;
 	 var searchTerm = document.getElementById("search").value;
 	 $("div").remove(".res");
-	 $("div").remove("#seemore");
+	 // $("div").remove("#seemore");
 
 	 $("#hello").collapse('hide');
      $("#searchbox").collapse('hide');
