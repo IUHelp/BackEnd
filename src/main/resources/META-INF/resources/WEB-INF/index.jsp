@@ -293,6 +293,7 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".btn-info").click(function(){
         if ($('button').text() == "see more"){
+            alert("inside javascript func");
             $("#info").collapse('show');
             document.getElementById("textResult").value= "see less";
         }else{
