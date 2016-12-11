@@ -179,7 +179,7 @@
                 <div class="form-group has-feedback">
                     <label for="search" class="sr-only">Search</label>
                     <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
-                      <span class="glyphicon glyphicon-search form-control-feedback"></span><button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+                      <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
                 </div>
         </div>
   </div>
