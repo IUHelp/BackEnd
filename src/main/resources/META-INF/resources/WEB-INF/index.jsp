@@ -156,15 +156,15 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <div class="form-group">
+
                    <form class="navbar-form navbar-right">
-
-                      <button type="button" class="btn btn-success"> Voice Search</button>
-
-                      <button type="button" class= "btn btn-primary"> Text Search</button>
-                      <button type="button" class="btn btn-info"> Feedback</button>
+                      <div class="form-group">
+                          <button type="button" class="btn btn-success"> Voice Search</button>
+                          <button type="button" class= "btn btn-primary"> Text Search</button>
+                          <button type="button" class="btn btn-info"> Feedback</button>
+                      </div>
                    </form>
-            </div>
+
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
 </nav>
