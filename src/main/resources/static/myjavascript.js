@@ -312,7 +312,7 @@ function httpGetAsyncText() {
 	 $("div").remove("#seemore");
 
 	 $("#hello").collapse('hide');
-     $("#searchbox").collapse('hide');
+    // $("#searchbox").collapse('hide');
 	console.log('sole');
 	$.ajax({
 
