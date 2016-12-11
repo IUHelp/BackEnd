@@ -289,6 +289,20 @@ $(document).ready(function(){
     <br>
     <div class="container" id ="SearchResult"></div>
 
+<script>
+$(document).ready(function(){
+    $(".btn-info").click(function(){
+        if ($('button').text() == "see more"){
+            $("#info").collapse('show');
+            document.getElementById("textResult").value= "see less";
+        }else{
+            $("#info").collapse('hide');
+            document.getElementById("textResult").value= "see more";
+        }
+    });
+
+});
+</script>
 
 
 
