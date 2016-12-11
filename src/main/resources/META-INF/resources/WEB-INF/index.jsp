@@ -243,19 +243,19 @@ $("#search").keyup(function(event){
 <div class="container">
   <div class="collapse" id="form">
       <div class= "feedback">
-    <form>
+    <form action="/addFeedback" method="POST">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" class="form-control" id="input" placeholder="Name">
+        <label for="username">Name</label>
+        <input type="text" class="form-control" id="username" placeholder="Name" name = "username">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+        <label for="email">Email address</label>
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" name = "email">
         <small id="emailHelp" class="form-text text-muted">Please enter the IU Email address</small>
       </div>
       <div class="form-group">
-        <label for="Textarea">Comments</label>
-        <textarea class="form-control" id="Textarea" rows="3"></textarea>
+        <label for="comments">Comments</label>
+        <textarea class="form-control" id="comments" rows="3" name = "comments"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
