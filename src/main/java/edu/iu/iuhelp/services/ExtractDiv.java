@@ -74,7 +74,7 @@ public class ExtractDiv {
         }
 
         // prints required text that is to be sent to front end for display
-        String text = searchText.substring(divIndex, closedivIndex);
+        String text = searchText.substring(divIndex, closedivIndex+1);
         return text;
     }
 }
