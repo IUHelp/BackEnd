@@ -60,6 +60,11 @@
   * {
     font-family: Verdana, Arial, sans-serif;
   }
+
+  .centered{
+      margin: 0 auto;
+  }
+
   a:link {
     color:#000;
     text-decoration: none;
@@ -174,10 +179,10 @@
 
 <div class="container-fluid">
   <div class="collapse in" id="searchbox">
-
+            <div class="centered text-center">
             <input type="text"  name="searchQuery" id="search" placeholder="search">
             <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
-
+            </div>
   </div>
 </div>
 
