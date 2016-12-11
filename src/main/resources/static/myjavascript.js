@@ -337,7 +337,7 @@ function httpGetAsyncText() {
                  console.log(response);
                console.log(response.linksResult.length);
                 var maincontent = response.textResult;
-
+                console.log(maincontent);
 
                 /* $('<div class="container-fluid"><div class="res"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');*/
 
