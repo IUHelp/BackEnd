@@ -160,8 +160,8 @@
                    <form class="navbar-form navbar-right">
                       <div class="form-group">
                           <button type="button" class="btn btn-success btn-block"> Voice Search</button>
-                          <button type="button" class= "btn btn-primary"> Text Search</button>
-                          <button type="button" class="btn btn-info"> Feedback</button>
+                          <button type="button" class= "btn btn-primary btn-block"> Text Search</button>
+                          <button type="button" class="btn btn-info btn-block"> Feedback</button>
                       </div>
                    </form>
 
