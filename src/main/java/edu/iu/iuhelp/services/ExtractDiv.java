@@ -50,9 +50,9 @@ public class ExtractDiv {
 
         // getting starting index of <div> just before starting offset
         int index=0;
-        int divIndex = searchText.indexOf("<div");
+        int divIndex = searchText.indexOf("<");
         while (divIndex >= 0) {
-            divIndex = searchText.indexOf("<div", divIndex + 1);
+            divIndex = searchText.indexOf("<", divIndex + 1);
             if (divIndex <= startOffset){
                 index = divIndex;
             }else{
@@ -63,10 +63,10 @@ public class ExtractDiv {
         divIndex = index;
 
         // getting starting index of </div> just after ending offset
-        int closedivIndex = searchText.indexOf("</div>");
+        int closedivIndex = searchText.indexOf(">");
 
         while (closedivIndex >= 0) {
-            closedivIndex = searchText.indexOf("</div>", closedivIndex + 1);
+            closedivIndex = searchText.indexOf(">", closedivIndex + 1);
             if (closedivIndex >= endOffset){
                 index = closedivIndex;
                 break;
