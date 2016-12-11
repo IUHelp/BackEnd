@@ -292,6 +292,7 @@ $(document).ready(function(){
 <script>
 $(document).ready(function(){
     $(".btn-info").click(function(){
+        alert("inside javascript func above");
         if ($('button').text() == "see more"){
             alert("inside javascript func");
             $("#info").collapse('show');
