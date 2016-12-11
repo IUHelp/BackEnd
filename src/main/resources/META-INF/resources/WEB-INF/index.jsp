@@ -146,7 +146,7 @@
 
 <body>
 
-
+<div class="container-fluid">
 <nav class="navbar navbar-default" style="background-color: #7A1705">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -235,7 +235,7 @@
 
 </div>
 </div>
-
+</div>
 <script>
 
 $("#search").keyup(function(event){
