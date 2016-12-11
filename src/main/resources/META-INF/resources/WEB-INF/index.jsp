@@ -176,11 +176,11 @@
   <div class="collapse in" id="searchbox">
         <div class="col-md-4 col-md-offset-3">
 
-                <div class="form-group has-feedback">
-                    <label for="search" class="sr-only">Search</label>
+
+
                     <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
-                      <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
-                </div>
+                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+
         </div>
   </div>
 </div>
