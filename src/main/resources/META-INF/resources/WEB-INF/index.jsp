@@ -61,10 +61,15 @@
     font-family: Verdana, Arial, sans-serif;
   }
 
-  .homeform input {
+  .homeform input[type="text"] {
       position:relative;
       width:50%;
   }
+
+  .homeform input[type="button"] {
+        position:relative;
+        width:20%;
+    }
 
   .centered{
       margin: 0 auto;
