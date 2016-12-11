@@ -180,8 +180,10 @@
 <div class="container-fluid">
   <div class="collapse in" id="searchbox">
             <div class="centered text-center">
-            <input type="text"  name="searchQuery" id="search" placeholder="search">
-            <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
+                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+                </div>
             </div>
   </div>
 </div>
