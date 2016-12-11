@@ -297,6 +297,7 @@ $(document).ready(function(){
             alert("inside javascript func");
             $("#info").collapse('show');
             document.getElementById("textResult").value= "see less";
+            alert("end of if");
         }else{
             $("#info").collapse('hide');
             document.getElementById("textResult").value= "see more";
