@@ -154,18 +154,18 @@
             <img alt="Brand" src="images/iub.png">
           </a>
         </div>
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-               <form class="navbar-form navbar-right">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="container-fluid">
+                   <form class="navbar-form navbar-right">
 
-                  <button type="button" class="btn btn-success"> Voice Search</button>
+                      <button type="button" class="btn btn-success"> Voice Search</button>
 
-                  <button type="button" class= "btn btn-primary"> Text Search</button>
-                  <button type="button" class="btn btn-info"> Feedback</button>
-               </form>
-            </div> <!-- /.navbar-collapse -->
-        </div>
+                      <button type="button" class= "btn btn-primary"> Text Search</button>
+                      <button type="button" class="btn btn-info"> Feedback</button>
+                   </form>
+            </div>
+        </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
 </nav>
 
