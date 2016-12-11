@@ -157,9 +157,9 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <div class="container-fluid">
            <form class="navbar-form navbar-right">
-              <div class="container-fluid">
+
               <button type="button" class="btn btn-success"> Voice Search</button>
-              </div>
+
               <button type="button" class= "btn btn-primary"> Text Search</button>
               <button type="button" class="btn btn-info"> Feedback</button>
            </form>
