@@ -339,7 +339,7 @@ function httpGetAsyncText() {
                 var maincontent = response.textResult;
 
 
-                 $('<div class="container-fluid"><div class="res"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
+                /* $('<div class="container-fluid"><div class="res"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');*/
 
 
                for (var i = 0; i < response.linksResult.length; i++) {
