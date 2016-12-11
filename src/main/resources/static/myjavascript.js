@@ -339,15 +339,11 @@ function httpGetAsyncText() {
                 var maincontent = response.textResult;
 
 
-
+                 $('<div class="container-fluid"><div class="res"><button type="button" data-toggle="collapse" data-target="#info" class="btn btn-info"> Matching Result </button><br><div class="collapse" id ="info">'+ maincontent+'</div></div></div>').appendTo('#SearchResult');
 
 
                for (var i = 0; i < response.linksResult.length; i++) {
 
-                  if (i==0){
-                     $('<div class="res"><div class="container-fluid"><button type="button" data-toggle="collapse" data-target="#info" class="btn btn-info"> Matching Result </button><br><div class="collapse" id ="info">'+ maincontent+'</div></div></div>').appendTo('#SearchResult');
-
-                  }
                   link = response.linksResult[i];
                   /*var content = link.content ;
                   content = content.substring(300,500);*/
