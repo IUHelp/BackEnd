@@ -174,14 +174,10 @@
 
 <div class="container-fluid">
   <div class="collapse in" id="searchbox">
-        <div class="col-md-4 col-md-offset-3">
 
+            <input type="text"  name="searchQuery" id="search" placeholder="search">
+            <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
 
-
-                    <input type="text" class="form-control" name="searchQuery" id="search" placeholder="search">
-                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
-
-        </div>
   </div>
 </div>
 
