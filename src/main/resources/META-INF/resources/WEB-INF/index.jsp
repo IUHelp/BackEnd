@@ -65,6 +65,12 @@
       margin: 0 auto;
   }
 
+  #search{
+
+     width:40%;
+
+  }
+
   a:link {
     color:#000;
     text-decoration: none;
