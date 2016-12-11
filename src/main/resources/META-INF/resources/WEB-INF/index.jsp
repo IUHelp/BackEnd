@@ -61,16 +61,6 @@
     font-family: Verdana, Arial, sans-serif;
   }
 
-  .homeform input[type="text"] {
-      position:relative;
-      width:50%;
-  }
-
-  .homeform input[type="button"] {
-        position:relative;
-        width:20%;
-    }
-
   .centered{
       margin: 0 auto;
   }
@@ -191,10 +181,10 @@
   <div class="collapse in" id="searchbox">
             <div class="centered text-center">
 
-                    <form class="homeform">
-                        <input type="text"  name="searchQuery" id="search" placeholder="search">
-                        <input id="searchbutton" type="button" class="btn btn-default" onclick="httpGetAsyncText()" value="Search">
-                    </form>
+
+                    <input type="text"  name="searchQuery" id="search" placeholder="search">
+                    <button id="searchbutton" type="submit" class="btn btn-default" onclick="httpGetAsyncText()">Search</button>
+
 
             </div>
   </div>
