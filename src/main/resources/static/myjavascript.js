@@ -339,7 +339,22 @@ function httpGetAsyncText() {
                 var maincontent = response.textResult;
                 console.log(maincontent);
 
-                 /*$('<div class="container-fluid"><div class="res"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');*/
+                int startIndex = maincontent.indexOf("<h");
+                if (startIndex >=0){
+                    maincontent = maincontent.substring(startIndex , maincontent.length);
+                }else{
+                    startIndex = maincontent.indexOf("<p");
+                    if (startIndex >= 0){
+                        maincontent = maincontent.substring(startIndex , maincontent.length);
+                    }
+                }else{
+
+                    maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
+                }
+
+
+
+                 $('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
 
 
                for (var i = 0; i < response.linksResult.length; i++) {
