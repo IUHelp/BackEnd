@@ -339,7 +339,7 @@ function httpGetAsyncText() {
 
                         $('<div class="res"> <div class="container-fluid"><h4>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h4></div></div>').appendTo('#SearchResult');
                }else{
-                        $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
+
                         for (var i = 0; i < response.linksResult.length; i++) {
 
                                        if (i==0){
@@ -354,7 +354,8 @@ function httpGetAsyncText() {
                                                            }
                                                        console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid"><div id ="info" style="color:#000000">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid">'+maincontent+'</div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
                                        }
 
                                        link = response.linksResult[i];
