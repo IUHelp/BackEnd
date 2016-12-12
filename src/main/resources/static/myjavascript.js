@@ -354,7 +354,7 @@ function httpGetAsyncText() {
                                                            }
                                                        console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info" style="color:#000000">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid"><div id ="info" style="color:#000000">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
                                        }
 
                                        link = response.linksResult[i];
