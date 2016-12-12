@@ -286,17 +286,43 @@ function httpGetAsync() {
 
          console.log('result length --');
 		 console.log(response.linksResult.length);
+                if (response.linksResult.length == 0){
 
-		  $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
-                        for (var i = 0; i < response.linksResult.length; i++) {
+                                        $('<div class="res"> <div class="container-fluid"><h4>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h4></div></div>').appendTo('#SearchResult');
+                }else{
 
-                           link = response.linksResult[i];
+                      for (var i = 0; i < response.linksResult.length; i++) {
 
-                             $('<div class="res"><a target="_blank" href='+link.link+'> <li class="list-group-item"><span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
-                                           + link.title
-                                           + '</li></a></div>').appendTo('#SearchResult');
-                        }
-                         $('</ul></div>').appendTo('#SearchResult');
+                                                       if (i==0){
+                                                                       var maincontent = response.textResult;
+                                                                       var length = maincontent.length;
+                                                                       console.log(maincontent);
+                                                                       var startIndex = maincontent.indexOf("<p");
+                                                                           if (startIndex >= 0){
+                                                                               maincontent = maincontent.substring(startIndex , length);
+                                                                           }else {
+                                                                               maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
+                                                                           }
+                                                                       console.log("main content---------------------------");
+                                                                       console.log(maincontent);
+                                                            $('<div class="res"><div class="container-fluid" style="border:1px solid #cecece;">'+maincontent+'</div></div><br>').appendTo('#SearchResult');
+                                                            $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
+                                                       }
+
+                                                       link = response.linksResult[i];
+                                                       /*var content = link.content ;
+                                                       content = content.substring(300,500);*/
+
+                                                       $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
+                                                                          + link.title
+                                                                          + '<br></a></li></div>').appendTo('#SearchResult');
+
+                                                        /*$('</ul></div>');*/
+                      }
+                       $('</ul></div>').appendTo('#SearchResult');
+
+                }
+
        }
 	});
 }
