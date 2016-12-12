@@ -343,7 +343,7 @@ function httpGetAsyncText() {
                                 var maincontent = response.textResult;
                                console.log(maincontent);
 
-                               int startIndex = maincontent.indexOf("<h");
+                               var startIndex = maincontent.indexOf("<h");
                                if (startIndex >=0){
                                    maincontent = maincontent.substring(startIndex , maincontent.length);
                                }else{
