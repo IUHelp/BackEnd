@@ -336,28 +336,27 @@ function httpGetAsyncText() {
                  console.log('result length --');
                  console.log(response);
                console.log(response.linksResult.length);
-                var maincontent = response.textResult;
-                console.log(maincontent);
-
-                int startIndex = maincontent.indexOf("<h");
-                if (startIndex >=0){
-                    maincontent = maincontent.substring(startIndex , maincontent.length);
-                }else{
-                    startIndex = maincontent.indexOf("<p");
-                    if (startIndex >= 0){
-                        maincontent = maincontent.substring(startIndex , maincontent.length);
-                    }
-                }else{
-
-                    maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
-                }
-
-
-
-                 $('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
-
 
                for (var i = 0; i < response.linksResult.length; i++) {
+
+               if (i==0){
+                                var maincontent = response.textResult;
+                               console.log(maincontent);
+
+                               int startIndex = maincontent.indexOf("<h");
+                               if (startIndex >=0){
+                                   maincontent = maincontent.substring(startIndex , maincontent.length);
+                               }else{
+                                   startIndex = maincontent.indexOf("<p");
+                                   if (startIndex >= 0){
+                                       maincontent = maincontent.substring(startIndex , maincontent.length);
+                                   }
+                               }else{
+
+                                   maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
+                               }
+                    $('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
+               }
 
                   link = response.linksResult[i];
                   /*var content = link.content ;
