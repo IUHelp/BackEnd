@@ -96,7 +96,7 @@ public class SearchController {
         return jsonValue;
     }
     
-    private static String generateContent(String url){
+    public static String generateContent(String url){
     	// TODO Auto-generated method stub
 		
         System.out.println("Fetching "+url);
