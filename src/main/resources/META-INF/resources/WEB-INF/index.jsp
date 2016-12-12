@@ -383,14 +383,14 @@ function httpGetAsyncText() {
                                             $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
                                        }
 
-                                          link = response.linksResult[i];
-                                          /*var content = link.content ;
-                                          content = content.substring(300,500);*/
+                                       link = response.linksResult[i];
+                                       /*var content = link.content ;
+                                       content = content.substring(300,500);*/
 
-                                            $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
+                                       $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
                                                           + link.title
                                                           + '<br></a></li></div>').appendTo('#SearchResult');
-                                       }
+
                                         $('</ul></div>');
                         }
 
