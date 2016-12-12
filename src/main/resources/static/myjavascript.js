@@ -287,7 +287,7 @@ function httpGetAsync() {
          console.log('result length --');
 		 console.log(response.linksResult.length);
 
-		  $('<div class="container-fluid"><ul class="list-group">')
+		  $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
                         for (var i = 0; i < response.linksResult.length; i++) {
 
                            link = response.linksResult[i];
@@ -296,7 +296,7 @@ function httpGetAsync() {
                                            + link.title
                                            + '</li></a></div>').appendTo('#SearchResult');
                         }
-                         $('</ul></div>')
+                         $('</ul></div>').appendTo('#SearchResult');
        }
 	});
 }
@@ -353,7 +353,7 @@ function httpGetAsyncText() {
                                                            }
                                                        console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid"><button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#info"></button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid"><button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#info">Matching result</button><br><div class="collapse in" id ="info">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
                                        }
 
                                        link = response.linksResult[i];
