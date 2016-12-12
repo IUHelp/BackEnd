@@ -160,4 +160,12 @@ public class SearchController {
         return "";
     }
 
+/*
+    @RequestMapping(value ="/error")
+    public String redirectToErrorPage(){
+
+        System.out.println(" error ");
+        return "error";
+    }*/
+
 }
