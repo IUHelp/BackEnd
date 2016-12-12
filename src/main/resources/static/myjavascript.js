@@ -339,6 +339,7 @@ function httpGetAsyncText() {
 
                         $('<div class="res"> <div class="container-fluid"><h4>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h4></div></div>').appendTo('#SearchResult');
                }else{
+                        $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
                         for (var i = 0; i < response.linksResult.length; i++) {
 
                                        if (i==0){
@@ -353,7 +354,7 @@ function httpGetAsyncText() {
                                                            }
                                                        console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid"><button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="collapseExample">Matching result</button><br><div class="collapse" id ="info" style="color:#000000"><div>'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info" style="color:#000000">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
                                        }
 
                                        link = response.linksResult[i];
@@ -364,9 +365,9 @@ function httpGetAsyncText() {
                                                           + link.title
                                                           + '<br></a></li></div>').appendTo('#SearchResult');
 
-                                        $('</ul></div>');
+                                        /*$('</ul></div>');*/
                         }
-
+                        $('</ul></div>').appendTo('#SearchResult');
 
                }
 
@@ -374,7 +375,7 @@ function httpGetAsyncText() {
 
 	});
 
-	/*$('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');*/
+	/*$('<div class="res"><div class="container-fluid"><button type="button" class="btn btn-warning" data-toggle="collapse" data-target="#info" aria-expanded="false" aria-controls="info">Matching result</button><br><div class="collapse" id ="info" style="color:#000000"><div>'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');*/
 }
 
 
