@@ -337,37 +337,45 @@ function httpGetAsyncText() {
                  console.log(response);
                console.log(response.linksResult.length);
 
-               for (var i = 0; i < response.linksResult.length; i++) {
+               if (response.linksResult.length == 0){
 
-               if (i==0){
-                                var maincontent = response.textResult;
-                               console.log(maincontent);
+                        $('<div class="res"> <div class="container-fluid"><h2>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h2></div></div>').appendTo('#SearchResult');
+               }else{
+                        for (var i = 0; i < response.linksResult.length; i++) {
 
-                               var startIndex = maincontent.indexOf("<h");
-                               if (startIndex >=0){
-                                   maincontent = maincontent.substring(startIndex , maincontent.length);
-                               }else{
-                                   startIndex = maincontent.indexOf("<p");
-                                   if (startIndex >= 0){
-                                       maincontent = maincontent.substring(startIndex , maincontent.length);
-                                   }else{
-                                        maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
-                                   }
-                               }
-                    $('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
+                                       if (i==0){
+                                                       var maincontent = response.textResult;
+                                                       console.log(maincontent);
+                                                       var startIndex = maincontent.indexOf("<p>");
+                                                           if (startIndex >= 0){
+                                                               maincontent = maincontent.substring(startIndex , maincontent.length);
+                                                           }else{
+                                                               maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
+                                                           }
+                                                       }
+                                                       console.log(maincontent);
+                                            $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
+                                       }
+
+                                          link = response.linksResult[i];
+                                          /*var content = link.content ;
+                                          content = content.substring(300,500);*/
+
+                                            $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
+                                                          + link.title
+                                                          + '<br></a></li></div>').appendTo('#SearchResult');
+                                       }
+                                        $('</ul></div>')
+                        }
+
+
                }
 
-                  link = response.linksResult[i];
-                  /*var content = link.content ;
-                  content = content.substring(300,500);*/
 
-                    $('<div class="res"><li class="list-group-item"><a target="_blank" href='+link.link+'> <span class="tag tag-default tag-pill float-xs-right">'+link.score+'</span>'
-                                  + link.title
-                                  + '<br></a></li></div>').appendTo('#SearchResult');
-               }
-                $('</ul></div>')
-              }
+
 	});
+
+	/*$('<div class="res"><div class="container-fluid"><button id="textResult" type="button" onclick="toggleTextResult()" class="btn btn-info">see more</button><br><br><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');*/
 }
 
 
