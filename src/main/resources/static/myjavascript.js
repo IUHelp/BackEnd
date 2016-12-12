@@ -343,15 +343,17 @@ function httpGetAsyncText() {
 
                                        if (i==0){
                                                        var maincontent = response.textResult;
+                                                       var length = maincontent.length;
                                                        console.log(maincontent);
                                                        var startIndex = maincontent.indexOf("<p");
                                                            if (startIndex >= 0){
-                                                               maincontent = maincontent.substring(startIndex , maincontent.length);
-                                                           }else{
+                                                               maincontent = maincontent.substring(startIndex , length);
+                                                           }else {
                                                                maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
                                                            }
+                                                       console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info">'+maincontent+'</div></div></div>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid"><div class="collapse" id ="info">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
                                        }
 
                                        link = response.linksResult[i];
