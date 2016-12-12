@@ -337,14 +337,14 @@ function httpGetAsyncText() {
 
                if (response.linksResult.length == 0){
 
-                        $('<div class="res"> <div class="container-fluid"><h2>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h2></div></div>').appendTo('#SearchResult');
+                        $('<div class="res"> <div class="container-fluid"><h4>Could not fetch any results for your query. You can enter a new query or make the current query more specific </h4></div></div>').appendTo('#SearchResult');
                }else{
                         for (var i = 0; i < response.linksResult.length; i++) {
 
                                        if (i==0){
                                                        var maincontent = response.textResult;
                                                        console.log(maincontent);
-                                                       var startIndex = maincontent.indexOf("<p>");
+                                                       var startIndex = maincontent.indexOf("<p");
                                                            if (startIndex >= 0){
                                                                maincontent = maincontent.substring(startIndex , maincontent.length);
                                                            }else{
