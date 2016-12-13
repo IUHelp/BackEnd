@@ -74,10 +74,8 @@
   }
 
   .scroll-area{
-    width:100%;
-    height:calc(100% - 300px);
-    margin-top:100px;
-    float:left;
+    width:80%;
+    height:200px;
     overflow-y:scroll;
   }
 
