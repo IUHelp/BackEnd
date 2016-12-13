@@ -73,6 +73,15 @@
       margin: 0 auto;
   }
 
+  .scroll-area{
+    width:100%;
+    height:calc(100% - 300px);
+    margin-top:100px;
+    background-color:green;
+    float:left;
+    overflow-y:scroll;
+  }
+
   #search{
 
      width:40%;
