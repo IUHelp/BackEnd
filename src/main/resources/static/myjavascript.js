@@ -380,7 +380,7 @@ function httpGetAsyncText() {
                                                            }
                                                        console.log("main content---------------------------");
                                                        console.log(maincontent);
-                                            $('<div class="res"><div class="container-fluid" style="border:1px solid #cecece;">'+maincontent+'</div></div><br>').appendTo('#SearchResult');
+                                            $('<div class="res"><div class="container-fluid" style="border:1px solid #cecece;"><div class="well well-sm pre-scrollable">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
                                             $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
                                        }
 
