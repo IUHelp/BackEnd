@@ -294,20 +294,22 @@ function httpGetAsync() {
                       for (var i = 0; i < response.linksResult.length; i++) {
 
                                                        if (i==0){
-                                                                       var maincontent = response.textResult;
-                                                                       var length = maincontent.length;
-                                                                       console.log(maincontent);
-                                                                       var startIndex = maincontent.indexOf("<p");
-                                                                           if (startIndex >= 0){
-                                                                               maincontent = maincontent.substring(startIndex , length);
-                                                                           }else {
-                                                                               maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
-                                                                           }
-                                                                       console.log("main content---------------------------");
-                                                                       console.log(maincontent);
-                                                            $('<div class="res"><div class="container-fluid" style="border:1px solid #cecece;">'+maincontent+'</div></div><br>').appendTo('#SearchResult');
-                                                            $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
-                                                       }
+                                                                                                              var maincontent = response.textResult;
+                                                                                                              var length = maincontent.length;
+                                                                                                              console.log(maincontent);
+                                                                                                              var startIndex = maincontent.indexOf("<p");
+                                                                                                                  if (startIndex >= 0){
+                                                                                                                      maincontent = maincontent.substring(startIndex , length);
+                                                                                                                  }else {
+                                                                                                                      maincontent = "Whoooops !!!!! Couldn't find the matching text. May be you could try out these links ";
+                                                                                                                  }
+                                                                                                              console.log("main content---------------------------");
+                                                                                                              console.log(maincontent);
+
+                                                                                                   $('<div class="res"><div class="scroll-area"><div class="container-fluid" style="border:1px solid #cecece;">'+maincontent+'</div></div></div><br>').appendTo('#SearchResult');
+                                                                                                   $('</div>').appendTo('#SearchResult');
+                                                                                                   $('<div class="container-fluid"><ul class="list-group">').appendTo('#SearchResult');
+                                                                                              }
 
                                                        link = response.linksResult[i];
                                                        /*var content = link.content ;
